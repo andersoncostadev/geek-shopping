@@ -7,9 +7,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FrontEnd", "FrontEnd", "{85
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{DA6C6B71-39BB-4A88-A311-0D3EA4D50AAD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeekShopping.Web", "GeekShopping.Web\GeekShopping.Web.csproj", "{8D1D4E0C-FD0D-484A-B133-DB1DC7AB590C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeekShopping.Web", "GeekShopping.Web\GeekShopping.Web.csproj", "{8D1D4E0C-FD0D-484A-B133-DB1DC7AB590C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeekShopping.ProductAPI", "GeekShopping.ProductAPI\GeekShopping.ProductAPI.csproj", "{7E73D820-9F96-4BA0-BBED-32C2EFE2EFD7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeekShopping.ProductAPI", "GeekShopping.ProductAPI\GeekShopping.ProductAPI.csproj", "{7E73D820-9F96-4BA0-BBED-32C2EFE2EFD7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeekShopping.IdentityServer", "GeekShopping.IdentityServer\GeekShopping.IdentityServer.csproj", "{48D11836-66C6-4ADD-8333-4BB7A8F1DAE1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,6 +27,10 @@ Global
 		{7E73D820-9F96-4BA0-BBED-32C2EFE2EFD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7E73D820-9F96-4BA0-BBED-32C2EFE2EFD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7E73D820-9F96-4BA0-BBED-32C2EFE2EFD7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48D11836-66C6-4ADD-8333-4BB7A8F1DAE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48D11836-66C6-4ADD-8333-4BB7A8F1DAE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48D11836-66C6-4ADD-8333-4BB7A8F1DAE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48D11836-66C6-4ADD-8333-4BB7A8F1DAE1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -32,6 +38,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{8D1D4E0C-FD0D-484A-B133-DB1DC7AB590C} = {85B2C226-3220-435A-9D18-82141EDA163F}
 		{7E73D820-9F96-4BA0-BBED-32C2EFE2EFD7} = {DA6C6B71-39BB-4A88-A311-0D3EA4D50AAD}
+		{48D11836-66C6-4ADD-8333-4BB7A8F1DAE1} = {DA6C6B71-39BB-4A88-A311-0D3EA4D50AAD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7F8D23CB-1DC9-4839-B00F-C7F763302573}

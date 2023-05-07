@@ -1,4 +1,5 @@
 ﻿using GeekShopping.Web.Services.IServices;
+using Microsoft.AspNetCore.Authentication;
 
 namespace GeekShopping.Web
 {
@@ -17,6 +18,32 @@ namespace GeekShopping.Web
                     c.BaseAddress = new Uri(Configuration["ServiceUrls:ProductAPI"])
                 );
             services.AddControllersWithViews();
+            services.AddAuthentication(options =>
+            {
+                options.DefaultScheme = "Cookies";
+                options.DefaultChallengeScheme = "oidc"; // OpenID Connect
+            })
+                .AddCookie("Cookies", options =>
+                {
+                    //options.LoginPath = "/Home/Login";
+                    //options.Cookie.HttpOnly = true;
+                    options.ExpireTimeSpan = TimeSpan.FromMinutes(10);
+                    //options.SlidingExpiration = true;
+                })
+                .AddOpenIdConnect("oidc", options =>
+                {
+                    options.Authority = Configuration["ServiceUrls:IdentityServer"];
+                    options.GetClaimsFromUserInfoEndpoint = true;
+                    options.ClientId = "geek_shopping";
+                    options.ClientSecret = "my_super_secret";
+                    options.ResponseType = "code";
+                    options.ClaimActions.MapJsonKey("role", "role", "role");
+                    options.ClaimActions.MapJsonKey("sub", "sub", "sub");
+                    options.TokenValidationParameters.NameClaimType = "name";
+                    options.TokenValidationParameters.RoleClaimType = "role";
+                    options.Scope.Add("geek_shopping");
+                    options.SaveTokens = true;
+                });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -29,10 +56,11 @@ namespace GeekShopping.Web
             {
                 app.UseExceptionHandler("/Home/Error");
             }
+            app.UseHttpsRedirection();
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
