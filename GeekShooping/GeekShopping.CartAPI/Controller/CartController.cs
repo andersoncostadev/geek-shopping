@@ -8,11 +8,11 @@ namespace GeekShopping.CartAPI.Controller
     [Route("api/v1/[controller]")]
     public class CartController : ControllerBase
     {
-        private ICartRepository _repository;
+        private readonly ICartRepository _repository;
 
         public CartController(ICartRepository repository)
         {
-            _repository = repository ?? throw new ArgumentException(nameof(repository));
+            _repository = repository ?? throw new ArgumentException(null, nameof(repository));
         }
 
         [HttpGet("find-cart/{id}")]
@@ -23,7 +23,7 @@ namespace GeekShopping.CartAPI.Controller
             return Ok(cart);
         }
 
-        [HttpPost("add-cart}")]
+        [HttpPost("add-cart")]
         public async Task<ActionResult<CartVO>> AddCart(CartVO cartVo)
         {
             var cart = await _repository.SaveOrUpdateCart(cartVo);
